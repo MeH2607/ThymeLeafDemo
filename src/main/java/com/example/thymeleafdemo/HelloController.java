@@ -12,10 +12,10 @@ import java.time.format.TextStyle;
 import java.util.Locale;
 
 @Controller
-@RequestMapping("hello")
+@RequestMapping("say")
 public class HelloController {
 
-    @GetMapping("say")
+    @GetMapping("hello")
    public String sayHello(String name, Model model){
         model.addAttribute("date", LocalDate.now());
     model.addAttribute("yo","Hello " + name + " :D on this beautiful date called " + LocalDate.now());
@@ -23,4 +23,9 @@ public class HelloController {
         return "HtmlFil";
     }
 
+    @GetMapping("isthiskevin")
+    public String checkIfKevin(String name, Model model){
+        model.addAttribute("name == 'Kevin'", " " + name);
+        return "Kevin";
+    }
 }
